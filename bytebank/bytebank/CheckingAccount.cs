@@ -5,5 +5,12 @@
         public int agencyNumber;
         public string agencyName;
         public double balance;
+        public bool Withdraw(double value) {
+            if (balance < value && value > 0) {
+                return false;
+            }
+            balance = balance - value;
+            return true;
+        }
     }
 }
