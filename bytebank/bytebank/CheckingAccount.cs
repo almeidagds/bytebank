@@ -16,5 +16,14 @@
         public void Deposit(double value) {
             balance = balance + value;
         }
+        public bool Transfer(double value, CheckingAccount destiny) {
+            if (balance < value || value <= 0) {
+                return false;
+            }
+
+            balance = balance - value;
+            destiny.balance = destiny.balance + value;
+            return true;
+        }
     }
 }
