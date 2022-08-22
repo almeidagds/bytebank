@@ -1,6 +1,7 @@
 ﻿namespace bytebank {
     public class CheckingAccount {
 
+        public Client holder;
         public string account;
         public int agencyNumber;
         public string agencyName;
