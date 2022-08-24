@@ -6,6 +6,11 @@
         private int agencyNumber;
         private string agencyName;
         private double balance;
+
+        public CheckingAccount(int agencyNumber, string account) {
+            AgencyNumber = agencyNumber;
+            Account = account;
+        }
         public bool Withdraw(double value) {
             if (balance < value || value < 0) {
                 return false;
@@ -35,14 +40,34 @@
 
         public string Account
         {
-            get;
-            set;
+            get
+            {
+                return account;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    account = value;
+                }
+            }
         }
 
         public int AgencyNumber
         {
-            get;
-            set;
+            get
+            {
+                return agencyNumber;
+            }
+
+            set
+            {
+                if (value >= 0)
+                {
+                    agencyNumber = value;
+                }
+            }
         }
 
         public string AgencyName
