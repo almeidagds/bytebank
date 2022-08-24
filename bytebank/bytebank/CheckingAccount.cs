@@ -5,7 +5,7 @@
         public string account;
         public int agencyNumber;
         public string agencyName;
-        public double balance;
+        private double balance;
         public bool Withdraw(double value) {
             if (balance < value || value < 0) {
                 return false;
@@ -25,6 +25,14 @@
             balance = balance - value;
             destiny.balance = destiny.balance + value;
             return true;
+        }
+
+        public void setBalance(double value)
+        {
+            if (value >= 0)
+            {
+                balance = value;
+            } 
         }
     }
 }
