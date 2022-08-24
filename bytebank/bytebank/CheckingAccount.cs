@@ -27,12 +27,17 @@
             return true;
         }
 
-        public void setBalance(double value)
+        public void SetBalance(double value)
         {
             if (value >= 0)
             {
                 balance = value;
             } 
+        }
+
+        public double GetBalance()
+        {
+            return balance;
         }
     }
 }

@@ -4,7 +4,7 @@ Console.WriteLine("Welcome to ByteBank!");
 
 CheckingAccount account = new CheckingAccount();
 
-account.setBalance(-10);
-Console.WriteLine(account.balance);
+account.SetBalance(-10);
+Console.WriteLine(account.GetBalance());
 
 Console.ReadKey();
