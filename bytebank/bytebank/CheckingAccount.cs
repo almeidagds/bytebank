@@ -1,10 +1,10 @@
 ﻿namespace bytebank {
     public class CheckingAccount {
 
-        public Client holder;
-        public string account;
-        public int agencyNumber;
-        public string agencyName;
+        private Client holder;
+        private string account;
+        private int agencyNumber;
+        private string agencyName;
         private double balance;
         public bool Withdraw(double value) {
             if (balance < value || value < 0) {
@@ -27,17 +27,43 @@
             return true;
         }
 
-        public void SetBalance(double value)
+        public Client Holder
         {
-            if (value >= 0)
-            {
-                balance = value;
-            } 
+            get;
+            set;
         }
 
-        public double GetBalance()
+        public string Account
         {
-            return balance;
+            get;
+            set;
         }
-    }
+
+        public int AgencyNumber
+        {
+            get;
+            set;
+        }
+
+        public string AgencyName
+        {
+            get;
+            set;
+        }
+
+        public double Balance
+        {
+            get
+            {
+                return balance;
+            }
+            set
+            {
+                if (value >= 0)
+                {
+                    balance = value;
+                }
+            }
+        }
+    }   
 }
