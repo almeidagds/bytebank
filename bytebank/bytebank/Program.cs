@@ -1,10 +1,11 @@
-﻿using bytebank;
+﻿using bytebank.Employees;
 
-Console.WriteLine("Welcome to ByteBank!");
+Console.WriteLine("Welcome to Bytebank Administrator.");
 
-CheckingAccount account = new CheckingAccount();
+Employee joao = new Employee();
 
-account.SetBalance(-10);
-Console.WriteLine(account.GetBalance());
+joao.Name = "João";
+joao.Cpf = "12345678945";
+joao.Salary = 1800;
 
-Console.ReadKey();
+Console.WriteLine($"Bonificação: {joao.getBonus()}");
