@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace bytebank.Employees
 {
-    public class Employee
-    {   
+    internal class CEO
+    {
         public string Name { get; set; }
         public string Cpf { get; set; }
         public double Salary { get; set; }
 
         public double getBonus()
         {
-            return Salary * 0.1;
+            return Salary;        
         }
     }
 }
