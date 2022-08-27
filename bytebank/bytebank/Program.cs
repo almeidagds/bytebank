@@ -1,6 +1,7 @@
 ﻿using bytebank.Employees;
 using bytebank.Utils;
 using bytebank.InternalSystem;
+using bytebank.CommercialPartnership;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
 
@@ -37,7 +38,13 @@ void UseSystem()
 
     AccountManager ursula = new AccountManager("Ursula", "512.456.784-15", "teste3");
 
+    CommercialPartner joao = new CommercialPartner("senha1234");
+
     internalSystem.Login(roberta, "123");
 
-    internalSystem.Login(ursula, "sdfasfd");
+    internalSystem.Login(ursula, "teste3");
+
+    internalSystem.Login(joao, "senha1234");
+
+
 }

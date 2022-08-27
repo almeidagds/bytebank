@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bytebank.Employees;
+using bytebank.CommercialPartnership;
 
 namespace bytebank.InternalSystem
 {
     public class InternalSystem
     {
-        public bool Login(AccountManager employee, string password)
+        public bool Login(Authenticable employee, string password)
         {
             bool IsAuthenticatedUser = employee.Authenticate(password);
 
@@ -25,7 +26,7 @@ namespace bytebank.InternalSystem
             return IsAuthenticatedUser;
         }
 
-        public bool Login(CEO employee, string password)
+        public bool Login(CommercialPartner employee, string password)
         {
             bool IsAuthenticatedUser = employee.Authenticate(password);
 
