@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bytebank.Employees
 {
-    internal class Assistant: Employee
+    public class Assistant: Employee
     {
         public Assistant(string name, string cpf):base(name, cpf, 2000, 0.2, 0.1)
         {

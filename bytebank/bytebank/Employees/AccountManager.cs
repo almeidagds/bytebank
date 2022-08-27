@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace bytebank.Employees
 {
-    internal class AccountManager: Employee
+    public class AccountManager: Employee
     {
-        public AccountManager(string name, string cpf):base(name, cpf, 4000, 0.25, 0.05)
+        public string Password { get; set; }
+
+        public AccountManager(string name, string cpf, string password):base(name, cpf, 4000, 0.25, 0.05)
         {
+            Password = password;
+            
             Console.WriteLine("Adding a new account manager...");
+        }
+
+        public bool Authenticate(string password)
+        {
+            return this.Password == password;
         }
     }
 }
