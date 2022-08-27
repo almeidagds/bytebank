@@ -8,6 +8,10 @@ namespace bytebank.Employees
 {
     internal class CEO:Employee
     {
+        public CEO(string cpf):base(cpf)
+        {
+
+        }
         public override double getBonus()
         {
             return Salary + base.getBonus();        
