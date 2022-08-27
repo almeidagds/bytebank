@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace bytebank.Employees
 {
-    internal class CEO
+    internal class CEO:Employee
     {
-        public string Name { get; set; }
-        public string Cpf { get; set; }
-        public double Salary { get; set; }
-
         public double getBonus()
         {
             return Salary;        
