@@ -10,7 +10,7 @@ namespace bytebank.Employees
     {
         public override double getBonus()
         {
-            return Salary;        
+            return Salary + base.getBonus();        
         }
     }
 }
