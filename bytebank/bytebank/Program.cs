@@ -5,25 +5,21 @@ Console.WriteLine("Welcome to Bytebank Administrator.");
 
 BonusManager manager = new BonusManager();
 
-Employee pedro = new Employee("78954612345");
+Employee pedro = new Employee("78954612345", 2000);
 pedro.Name = "Pedro";
-pedro.Salary = 2000;
-Console.WriteLine($"Total de funcionários: {Employee.NumberOfEmployees}");
 
-CEO paula = new CEO("45678912312");
+CEO paula = new CEO("45678912312", 5000);
 paula.Name = "Paula";
-paula.Salary = 5000;
-Console.WriteLine($"Total de funcionários: {Employee.NumberOfEmployees}");
 
-Employee andre = new CEO("45612345678");
+Employee andre = new CEO("45612345678", 3000);
 andre.Name = "André";
-
-Console.WriteLine($"Total de funcionários: {Employee.NumberOfEmployees}");
-
-Console.WriteLine($"Bonificação do {pedro.Name}: {pedro.getBonus()}");
-Console.WriteLine($"Bonificação da {paula.Name}: {paula.getBonus()}");
 
 manager.Registry(pedro);
 manager.Registry(paula);
+manager.Registry(andre);
 
-Console.WriteLine($"Total de bonificações dos funcionários: {manager.GetBonusTotal()}");
+andre.RiseSalary();
+pedro.RiseSalary();
+
+Console.WriteLine($"Novo salário do André {andre.Salary}");
+Console.WriteLine($"Novo salário do Pedro {pedro.Salary}");

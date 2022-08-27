@@ -10,11 +10,12 @@ namespace bytebank.Employees
     {   
         public string Name { get; set; }
         public string Cpf { get; private set; }
-        public double Salary { get; set; }
+        public double Salary { get; protected set; }
 
-        public Employee(string cpf)
+        public Employee(string cpf, double salary)
         {
             Cpf = cpf;
+            Salary = salary;
             NumberOfEmployees++;
         }
 
@@ -24,5 +25,10 @@ namespace bytebank.Employees
         }
 
         public static int NumberOfEmployees { get; private set; }
+
+        public virtual void RiseSalary()
+        {
+            this.Salary *= 1.1;
+        }
     }
 }
