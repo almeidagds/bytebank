@@ -3,23 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using bytebank.InternalSystem;
 
 namespace bytebank.Employees
 {
-    public class AccountManager: Employee
+    public class AccountManager:Authenticable
     {
-        public string Password { get; set; }
-
-        public AccountManager(string name, string cpf, string password):base(name, cpf, 4000, 0.25, 0.05)
+        public AccountManager(string name, string cpf, string password):base(name, cpf, 4000, 0.25, 0.05, password)
         {
-            Password = password;
-            
             Console.WriteLine("Adding a new account manager...");
-        }
-
-        public bool Authenticate(string password)
-        {
-            return this.Password == password;
         }
     }
 }
