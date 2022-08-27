@@ -36,7 +36,7 @@ namespace bytebank.Employees
             return Salary * BonusPercentage;
         }
 
-        public virtual void RiseSalary()
+        public void RiseSalary()
         {
             this.Salary *= (1 + SalaryIncreasePercentage);
         }
