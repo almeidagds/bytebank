@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace bytebank.Employees
 {
-    internal class CEO:Employee
+    internal class Designer: Employee
     {
-        public CEO(string name, string cpf):base(name, cpf, 5000, 0.5, 0.15)
+        public Designer(string name,string cpf):base(name,cpf, 3000, 0.17, 0.11)
         {
-            Console.WriteLine("Adding a new CEO...");
+            Console.WriteLine("Adding a new designer...");
         }
     }
 }

@@ -3,23 +3,24 @@ using bytebank.Utils;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
 
-BonusManager manager = new BonusManager();
+CalculateBonus();
 
-Employee pedro = new Employee("78954612345", 2000);
-pedro.Name = "Pedro";
+void CalculateBonus()
+{
+    BonusManager manager = new BonusManager();
 
-CEO paula = new CEO("45678912312", 5000);
-paula.Name = "Paula";
+    Designer pedro = new Designer("Pedro", "123.456.789-12");
 
-Employee andre = new CEO("45612345678", 3000);
-andre.Name = "André";
+    CEO paula = new CEO("Paula", "456.789.123-78");
 
-manager.Registry(pedro);
-manager.Registry(paula);
-manager.Registry(andre);
+    Assistant igor = new Assistant("Igor", "456.754.123-98");
 
-andre.RiseSalary();
-pedro.RiseSalary();
+    AccountManager camila = new AccountManager("Camila", "512.456.784-15");
 
-Console.WriteLine($"Novo salário do André {andre.Salary}");
-Console.WriteLine($"Novo salário do Pedro {pedro.Salary}");
+    manager.Registry(pedro);
+    manager.Registry(paula);
+    manager.Registry(igor);
+    manager.Registry(camila);
+
+    Console.WriteLine($"Bonus total: {manager.GetTotalBonus()}");
+}

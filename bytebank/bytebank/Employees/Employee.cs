@@ -6,29 +6,41 @@ using System.Threading.Tasks;
 
 namespace bytebank.Employees
 {
-    public class Employee
+    public abstract class Employee
     {   
         public string Name { get; set; }
         public string Cpf { get; private set; }
         public double Salary { get; protected set; }
+        public double BonusPercentage { get; protected set; }
+        public double SalaryIncreasePercentage { get; protected set; }
 
-        public Employee(string cpf, double salary)
+        public Employee(
+            string name,
+            string cpf,
+            double salary,
+            double bonusPercentage,
+            double salaryIncreasePercentage
+            )
         {
+            Name = name;
             Cpf = cpf;
             Salary = salary;
+            BonusPercentage = bonusPercentage;
+            SalaryIncreasePercentage = salaryIncreasePercentage;
+
             NumberOfEmployees++;
         }
 
-        public virtual double getBonus()
+        public double GetBonus()
         {
-            return Salary * 0.1;
+            return Salary * BonusPercentage;
         }
-
-        public static int NumberOfEmployees { get; private set; }
 
         public virtual void RiseSalary()
         {
-            this.Salary *= 1.1;
+            this.Salary *= (1 + SalaryIncreasePercentage);
         }
+
+        public static int NumberOfEmployees { get; private set; }
     }
 }

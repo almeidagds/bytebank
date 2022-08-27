@@ -13,9 +13,9 @@ namespace bytebank.Utils
 
         public void Registry(Employee employee)
         {
-            this._bonusTotal += employee.getBonus();
+            this._bonusTotal += employee.GetBonus();
         }
-        public double GetBonusTotal()
+        public double GetTotalBonus()
         {
             return this._bonusTotal;
         }
