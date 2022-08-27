@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using bytebank.InternalSystem;
 
 namespace bytebank.CommercialPartnership
 {
-    public class CommercialPartner
+    public class CommercialPartner: IAuthenticable
     {
         public CommercialPartner (string password)
         {
