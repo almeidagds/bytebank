@@ -16,3 +16,12 @@ paula.Cpf = "45678912312";
 paula.Salary = 5000;
 
 Employee andre = new CEO();
+andre.Name = "André";
+
+Console.WriteLine($"Bonificação do {pedro.Name}: {pedro.getBonus()}");
+Console.WriteLine($"Bonificação da {paula.Name}: {paula.getBonus()}");
+
+manager.Registry(pedro);
+manager.Registry(paula);
+
+Console.WriteLine($"Total de bonificações dos funcionários: {manager.GetBonusTotal()}");

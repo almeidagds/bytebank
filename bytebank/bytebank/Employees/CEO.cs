@@ -8,7 +8,7 @@ namespace bytebank.Employees
 {
     internal class CEO:Employee
     {
-        public double getBonus()
+        public override double getBonus()
         {
             return Salary;        
         }

@@ -12,7 +12,7 @@ namespace bytebank.Employees
         public string Cpf { get; set; }
         public double Salary { get; set; }
 
-        public double getBonus()
+        public virtual double getBonus()
         {
             return Salary * 0.1;
         }
