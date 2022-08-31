@@ -2,8 +2,10 @@
 using bytebank.Utils;
 using bytebank.InternalSystem;
 using bytebank.CommercialPartnership;
+using bytebank.Clients;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
+
 
 UseSystem();
 
@@ -46,5 +48,13 @@ void UseSystem()
 
     internalSystem.Login(joao, "senha1234");
 
-
+    try
+    {
+        int zero = 0;
+        int divideByZero = 4 / zero;
+    }
+    catch (DivideByZeroException)
+    {
+        Console.WriteLine("You can't divide by zero.");
+    }
 }
