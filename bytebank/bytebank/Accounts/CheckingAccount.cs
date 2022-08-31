@@ -34,7 +34,7 @@ namespace bytebank.Accounts
                 if (value > 0) Balance = value;
             }
         }
-        public static double TransactionFee { get; private set; }
+        public static double OperationFee { get; private set; }
         public static int NumberOfAccounts { get; private set; }
 
         public CheckingAccount(Client holder, int agency, int accountNumber)
@@ -44,7 +44,7 @@ namespace bytebank.Accounts
             AccountNumber = accountNumber;
             Balance = 0;
             NumberOfAccounts++;
-            TransactionFee = 30 / NumberOfAccounts;
+            Operation = 30 / NumberOfAccounts;
         }
         public bool Withdraw(double value)
         {
