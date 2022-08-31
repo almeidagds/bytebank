@@ -44,7 +44,7 @@ namespace bytebank.Accounts
             AccountNumber = accountNumber;
             Balance = 0;
             NumberOfAccounts++;
-            Operation = 30 / NumberOfAccounts;
+            OperationFee = 30 / NumberOfAccounts;
         }
         public bool Withdraw(double value)
         {
