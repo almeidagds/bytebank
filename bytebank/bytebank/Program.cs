@@ -3,11 +3,20 @@ using bytebank.Utils;
 using bytebank.InternalSystem;
 using bytebank.CommercialPartnership;
 using bytebank.Clients;
+using bytebank.Accounts;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
 
+try
+{
+    Client client = new Client("Gabriel", "43254678912", "Developer");
 
-UseSystem();
+    CheckingAccount account = new CheckingAccount(client, 12, 0);
+}
+catch (ArgumentException error)
+{
+    Console.WriteLine(error.Message);
+}
 
 void CalculateBonus()
 {
@@ -47,14 +56,4 @@ void UseSystem()
     internalSystem.Login(ursula, "teste3");
 
     internalSystem.Login(joao, "senha1234");
-
-    try
-    {
-        int zero = 0;
-        int divideByZero = 4 / zero;
-    }
-    catch (DivideByZeroException)
-    {
-        Console.WriteLine("You can't divide by zero.");
-    }
 }

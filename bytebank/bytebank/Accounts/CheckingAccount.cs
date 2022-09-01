@@ -31,6 +31,15 @@ namespace bytebank.Accounts
             Balance = 0;
             NumberOfAccounts++;
             OperationFee = 30 / NumberOfAccounts;
+
+            if (agency <= 0)
+            {
+                throw new ArgumentException("The agency number can't be less or equal to zero.");
+            }
+            if (accountNumber <= 0)
+            {
+                throw new ArgumentException("The account number can't be less or equal to zero.");
+            }
         }
         public bool Withdraw(double value)
         {
