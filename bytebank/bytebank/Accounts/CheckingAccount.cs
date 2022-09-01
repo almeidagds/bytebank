@@ -10,22 +10,8 @@ namespace bytebank.Accounts
     public class CheckingAccount
     {
         public Client Holder { get; set; }
-        public int Agency
-        {
-            get { return Agency; }
-            set
-            {
-                if (value > 0) Agency = value;
-            }
-        }
-        public int AccountNumber
-        {
-            get { return AccountNumber; }
-            set
-            {
-                if (value > 0) AccountNumber = value;
-            }
-        }
+        public int Agency { get; }
+        public int AccountNumber { get; }
         public double Balance
         {
             get { return Balance; }
