@@ -15,6 +15,7 @@ try
 }
 catch (ArgumentException error)
 {
+    Console.WriteLine($"Param that caused the error: {error.ParamName}");
     Console.WriteLine(error.Message);
 }
 
