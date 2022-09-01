@@ -34,11 +34,11 @@ namespace bytebank.Accounts
 
             if (agency <= 0)
             {
-                throw new ArgumentException("The agency number can't be less or equal to zero.", "agency");
+                throw new ArgumentException("The agency number can't be less or equal to zero.", nameof(agency));
             }
             if (accountNumber <= 0)
             {
-                throw new ArgumentException("The account number can't be less or equal to zero.", "accountNumber");
+                throw new ArgumentException("The account number can't be less or equal to zero.", nameof(accountNumber));
             }
         }
         public bool Withdraw(double value)
