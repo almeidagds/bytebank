@@ -4,6 +4,7 @@ using bytebank.InternalSystem;
 using bytebank.CommercialPartnership;
 using bytebank.Clients;
 using bytebank.Accounts;
+using bytebank.CustomExceptions;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
 
@@ -11,11 +12,17 @@ try
 {
     Client client = new Client("Gabriel", "43254678912", "Developer");
 
-    CheckingAccount account = new CheckingAccount(client, 12, 0);
+    CheckingAccount account = new CheckingAccount(client, 100, 100);
+
+    account.Withdraw(200);
 }
 catch (ArgumentException error)
 {
     Console.WriteLine($"Param that caused the error: {error.ParamName}");
+    Console.WriteLine(error.Message);
+}
+catch (InsufficientBalanceException error)
+{
     Console.WriteLine(error.Message);
 }
 

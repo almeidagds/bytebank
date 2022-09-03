@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bytebank.Clients;
+using bytebank.CustomExceptions;
 
 namespace bytebank.Accounts
 {
@@ -41,17 +42,18 @@ namespace bytebank.Accounts
                 throw new ArgumentException("The account number can't be less or equal to zero.", nameof(accountNumber));
             }
         }
-        public bool Withdraw(double value)
+        public void Withdraw(double value)
         {
-            bool withdrawWasSuccessfull = false;
 
             if (Balance >= value)
             {
                 Balance -= value;
-                withdrawWasSuccessfull = true;
+            }
+            else
+            {
+                throw new InsufficientBalanceException("Insufficient balance.");
             }
 
-            return withdrawWasSuccessfull;
         }
 
         public void Deposit(double value)
