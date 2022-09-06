@@ -12,13 +12,14 @@ try
 {
     Client client = new Client("Gabriel", "43254678912", "Developer");
 
-    CheckingAccount account = new CheckingAccount(client, 100, 100);
+    CheckingAccount account = new CheckingAccount(client, 100, 0);
 
     account.Withdraw(200);
 }
 catch (ArgumentException error)
 {
     Console.WriteLine($"Param that caused the error: {error.ParamName}");
+    Console.WriteLine(error.StackTrace);
     Console.WriteLine(error.Message);
 }
 catch (InsufficientBalanceException error)
