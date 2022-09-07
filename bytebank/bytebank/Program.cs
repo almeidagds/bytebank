@@ -26,6 +26,10 @@ catch (InsufficientBalanceException error)
 {
     Console.WriteLine(error.Message);
 }
+finally
+{
+    Console.WriteLine("Goodbye!");
+}
 
 void CalculateBonus()
 {
