@@ -29,6 +29,18 @@ namespace bytebank.Utils
                 Console.WriteLine("The array is already full.");
             }
         }
+
+        public void Remove(int position)
+        {
+            if (position < _items.Length)
+            {
+                _items[position] = null;
+            }
+            else
+            {
+                Console.WriteLine("The referenced position does not exist");
+            }
+        }
         private bool CheckCapacity(int size)
         {
             return _items.Length - 1 >= size;
