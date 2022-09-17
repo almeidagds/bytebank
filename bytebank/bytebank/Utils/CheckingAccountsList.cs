@@ -45,5 +45,31 @@ namespace bytebank.Utils
         {
             return _items.Length - 1 >= size;
         }
+
+        public CheckingAccount getItemByIndex(int index)
+        {
+            if (index < 0 || index >= _items.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index));
+            }
+
+            return _items[index];
+        }
+
+        public int Size
+        {
+            get
+            {
+                return _items.Length;
+            }
+        }
+
+        public CheckingAccount this[int index]
+        {
+            get
+            {
+                return getItemByIndex(index);
+            }
+        }
     }
 }
