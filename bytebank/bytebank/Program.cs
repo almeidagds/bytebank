@@ -7,28 +7,25 @@ using bytebank.Accounts;
 using bytebank.CustomExceptions;
 using System.Runtime.Serialization.Formatters;
 
-Console.WriteLine("Welcome to Bytebank Administrator.");
-
-CheckingAccount[] accountsList = new CheckingAccount[]
+void CustomerService()
 {
-    new CheckingAccount(
-            new Client("Gabriel", "12345678912", "Developer"),
-            0124,
-            12345678
-        ),
-    new CheckingAccount(
-            new Client("Jorge", "12345678912", "QA Analyst"),
-            0124,
-            12345678
-        ),
-    new CheckingAccount(
-            new Client("Pedro", "12345678912", "Manager"),
-            0124,
-            12345678
-        )
-};
 
-foreach (CheckingAccount account in accountsList)
-{
-    Console.WriteLine(account);
 }
+
+void ShowMenu()
+{
+    string menu = $"*-------------------------------*\n" +
+                  $"|       Customer Service        |\n" +
+                  $"*-------------------------------*\n" +
+                  $"|    1 - Create a new account   |\n" +
+                  $"|    2 - Show all accounts      |\n" +
+                  $"|    3 - Delete account         |\n" +
+                  $"|    4 - Sort accounts          |\n" +
+                  $"|    5 - Search account         |\n" +
+                  $"|    6 - Exit system            |\n" +
+                  $"*-------------------------------*\n";
+
+    Console.WriteLine(menu);
+}
+
+ShowMenu();
