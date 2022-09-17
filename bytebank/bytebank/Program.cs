@@ -9,26 +9,26 @@ using System.Runtime.Serialization.Formatters;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
 
-Array array = Array.CreateInstance(typeof(double), 5);
-
-array.SetValue(5.9, 0);
-array.SetValue(4.4, 1);
-array.SetValue(7.3, 2);
-array.SetValue(3.7, 3);
-array.SetValue(9.2, 4);
-
-void TestMedian(Array array)
+CheckingAccount[] accountsList = new CheckingAccount[]
 {
-    if (array == null || array.Length == 0)
-    {
-        Console.WriteLine("Array is empty or null.");
-    }
-    
-    double[] orderedNumbers = (double[])array.Clone();
+    new CheckingAccount(
+            new Client("Gabriel", "12345678912", "Developer"),
+            0124,
+            12345678
+        ),
+    new CheckingAccount(
+            new Client("Jorge", "12345678912", "QA Analyst"),
+            0124,
+            12345678
+        ),
+    new CheckingAccount(
+            new Client("Pedro", "12345678912", "Manager"),
+            0124,
+            12345678
+        )
+};
 
-    Array.Sort(orderedNumbers);
-
-    int middle = orderedNumbers.Length / 2;
-
-    double median = (orderedNumbers.Length % 2 == 0) ? orderedNumbers[middle] : (orderedNumbers[middle] + orderedNumbers[middle - 1]) / 2;
+foreach (CheckingAccount account in accountsList)
+{
+    Console.WriteLine(account);
 }
