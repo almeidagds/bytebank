@@ -5,20 +5,29 @@ using bytebank.CommercialPartnership;
 using bytebank.Clients;
 using bytebank.Accounts;
 using bytebank.CustomExceptions;
+using System.Runtime.Serialization.Formatters;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
 
-int[] ages = new int[5];
+string[] wordsArray = new string[5];
 
-ages[0] = 1;
-ages[1] = 2;
-ages[2] = 3;
-ages[3] = 4;
-ages[4] = 5;
-
-Console.WriteLine($"Age's array size: {ages.Length}");
-
-for (int i = 0; i < ages.Length; i++)
+for (int i = 0; i < wordsArray.Length; i++)
 {
-    Console.WriteLine(ages[i]);
+    Console.Write($"Type {i + 1}th word: ");
+    wordsArray[i] = Console.ReadLine();
+}
+
+Console.Write("Type the word to be searched: ");
+var search = Console.ReadLine();
+
+foreach (var word in wordsArray)
+{
+    if (word.Equals(search))
+    {
+        Console.WriteLine($"Word founded: {search}");
+    }
+    else
+    {
+        Console.WriteLine($"Word '{search}' was not found.");
+    }
 }
