@@ -9,25 +9,26 @@ using System.Runtime.Serialization.Formatters;
 
 Console.WriteLine("Welcome to Bytebank Administrator.");
 
-string[] wordsArray = new string[5];
+Array array = Array.CreateInstance(typeof(double), 5);
 
-for (int i = 0; i < wordsArray.Length; i++)
+array.SetValue(5.9, 0);
+array.SetValue(4.4, 1);
+array.SetValue(7.3, 2);
+array.SetValue(3.7, 3);
+array.SetValue(9.2, 4);
+
+void TestMedian(Array array)
 {
-    Console.Write($"Type {i + 1}th word: ");
-    wordsArray[i] = Console.ReadLine();
-}
-
-Console.Write("Type the word to be searched: ");
-var search = Console.ReadLine();
-
-foreach (var word in wordsArray)
-{
-    if (word.Equals(search))
+    if (array == null || array.Length == 0)
     {
-        Console.WriteLine($"Word founded: {search}");
+        Console.WriteLine("Array is empty or null.");
     }
-    else
-    {
-        Console.WriteLine($"Word '{search}' was not found.");
-    }
+    
+    double[] orderedNumbers = (double[])array.Clone();
+
+    Array.Sort(orderedNumbers);
+
+    int middle = orderedNumbers.Length / 2;
+
+    double median = (orderedNumbers.Length % 2 == 0) ? orderedNumbers[middle] : (orderedNumbers[middle] + orderedNumbers[middle - 1]) / 2;
 }
