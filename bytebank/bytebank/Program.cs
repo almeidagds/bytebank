@@ -28,4 +28,13 @@ void ShowMenu()
     Console.WriteLine(menu);
 }
 
+void selectOption(string option)
+{
+        switch (option)
+        {
+            case "1":
+                break;
+        }
+}
+
 ShowMenu();
