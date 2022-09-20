@@ -37,6 +37,8 @@ void selectOption(string option)
         {
             case "1": CreateAccount();
                 break;
+            case "2": ShowAllAccounts();
+                break;
         }
 }
 
@@ -53,6 +55,7 @@ void CreateAccount()
                                 $"| Creating a new account |\n" +
                                 $"*------------------------*\n\n";
 
+    Console.WriteLine(createAccountTitle);
     Console.WriteLine("Please, inform the account data:\n");
 
     Console.Write("Account number: ");
@@ -76,5 +79,31 @@ void CreateAccount()
 
     _accountsList.Add(account);
     Console.WriteLine("\n* Account created successfully *");
+    Console.ReadKey();
+}
+
+void ShowAllAccounts()
+{
+    string showAllAccountsTitle = $"*------------------------*\n" +
+                                  $"|  Showing all accounts  |\n" +
+                                  $"*------------------------*\n\n";
+
+    Console.WriteLine(showAllAccountsTitle);
+    if (_accountsList.Count <= 0)
+    {
+        Console.WriteLine("There aren't accounts to show...");
+        Console.ReadKey();
+    } else
+    {
+        foreach(CheckingAccount account in _accountsList)
+        {
+            string accountInformation = $"Holder: {account.Holder.Name}\n" +
+                                        $"Holder's CPF: {account.Holder.Cpf}\n" +
+                                        $"Holder's job: {account.Holder.Job}\n" +
+                                        $"Account number: {account.AccountNumber}\n" +
+                                        $"Agency number: {account.Agency}\n\n";
+        }
+    }
+
     Console.ReadKey();
 }
