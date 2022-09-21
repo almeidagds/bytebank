@@ -19,7 +19,7 @@ CheckingAccount adrianaAccount = new CheckingAccount(adriana, 123, 123456);
 CheckingAccount brunoAccount = new CheckingAccount(bruno, 465, 456789);
 CheckingAccount carlosAccount = new CheckingAccount(carlos, 789, 789123);
 
-ArrayList _accountsList = new ArrayList() { adrianaAccount, brunoAccount, carlosAccount };
+List<CheckingAccount> _accountsList = new List<CheckingAccount>() { adrianaAccount, brunoAccount, carlosAccount };
 
 ShowMenu();
 
