@@ -15,6 +15,8 @@ void CustomerService()
 
 void ShowMenu()
 {
+    Console.Clear();
+
     string menu = $"*-------------------------------*\n" +
                   $"|       Customer Service        |\n" +
                   $"*-------------------------------*\n" +
@@ -33,13 +35,23 @@ void ShowMenu()
 
 void selectOption(string option)
 {
-        switch (option)
-        {
-            case "1": CreateAccount();
-                break;
-            case "2": ShowAllAccounts();
-                break;
-        }
+    Console.Clear();
+
+    switch (option)
+    {
+        case "1":
+            CreateAccount();
+            goto default;
+        case "2":
+            ShowAllAccounts();
+            goto default;
+        case "6":
+            ExitProgram();
+            break;
+        default: 
+            ShowMenu();
+            break;
+    }
 }
 
 ArrayList _accountsList = new ArrayList();
@@ -78,6 +90,7 @@ void CreateAccount()
     CheckingAccount account = new CheckingAccount(client, agencyNumber, accountNumber);
 
     _accountsList.Add(account);
+    Console.WriteLine(_accountsList.Count);
     Console.WriteLine("\n* Account created successfully *");
     Console.ReadKey();
 }
@@ -92,8 +105,8 @@ void ShowAllAccounts()
     if (_accountsList.Count <= 0)
     {
         Console.WriteLine("There aren't accounts to show...");
-        Console.ReadKey();
-    } else
+    } 
+    else
     {
         foreach(CheckingAccount account in _accountsList)
         {
@@ -101,9 +114,17 @@ void ShowAllAccounts()
                                         $"Holder's CPF: {account.Holder.Cpf}\n" +
                                         $"Holder's job: {account.Holder.Job}\n" +
                                         $"Account number: {account.AccountNumber}\n" +
-                                        $"Agency number: {account.Agency}\n\n";
+                                        $"Agency number: {account.Agency}\n";
+            
+            Console.WriteLine(accountInformation);
         }
     }
 
     Console.ReadKey();
+}
+
+void ExitProgram()
+{
+    Console.Clear();
+    Console.WriteLine("You left the system...");
 }
