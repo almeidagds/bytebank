@@ -8,10 +8,20 @@ using bytebank.CustomExceptions;
 using System.Runtime.Serialization.Formatters;
 using System.Collections;
 
-void CustomerService()
-{
 
-}
+//Clients
+Client adriana = new Client("Adriana", "123546789", "Marketing");
+Client bruno = new Client("Bruno", "456789132", "Developer");
+Client carlos = new Client("Carlos", "789456132", "Sales");
+
+//Accounts
+CheckingAccount adrianaAccount = new CheckingAccount(adriana, 123, 123456);
+CheckingAccount brunoAccount = new CheckingAccount(bruno, 465, 456789);
+CheckingAccount carlosAccount = new CheckingAccount(carlos, 789, 789123);
+
+ArrayList _accountsList = new ArrayList() { adrianaAccount, brunoAccount, carlosAccount };
+
+ShowMenu();
 
 void ShowMenu()
 {
@@ -53,11 +63,6 @@ void selectOption(string option)
             break;
     }
 }
-
-ArrayList _accountsList = new ArrayList();
-
-ShowMenu();
-
 
 void CreateAccount()
 {
