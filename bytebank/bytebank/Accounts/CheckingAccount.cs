@@ -13,7 +13,7 @@ namespace bytebank.Accounts
     {
         public Client Holder { get; set; }
         public int Agency { get; }
-        public int AccountNumber { get; }
+        public string AccountNumber { get; }
         public double Balance
         {
             get { return Balance; }
@@ -25,11 +25,11 @@ namespace bytebank.Accounts
         public static double OperationFee { get; private set; }
         public static int NumberOfAccounts { get; private set; }
 
-        public CheckingAccount(Client holder, int agency, int accountNumber)
+        public CheckingAccount(Client holder, int agency)
         {
             Holder = holder;
             Agency = agency;
-            AccountNumber = accountNumber;
+            AccountNumber = Guid.NewGuid().ToString().Substring(0, 8);
             Balance = 0;
             NumberOfAccounts++;
             OperationFee = 30 / NumberOfAccounts;
@@ -37,10 +37,6 @@ namespace bytebank.Accounts
             if (agency <= 0)
             {
                 throw new ArgumentException("The agency number can't be less or equal to zero.", nameof(agency));
-            }
-            if (accountNumber <= 0)
-            {
-                throw new ArgumentException("The account number can't be less or equal to zero.", nameof(accountNumber));
             }
         }
         public void Withdraw(double value)

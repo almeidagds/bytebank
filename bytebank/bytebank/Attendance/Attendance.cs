@@ -19,9 +19,9 @@ namespace bytebank.Attendance
             Client carlos = new Client("Carlos", "789456132", "Sales");
 
             //Accounts
-            CheckingAccount adrianaAccount = new CheckingAccount(adriana, 123, 123456);
-            CheckingAccount brunoAccount = new CheckingAccount(bruno, 465, 456789);
-            CheckingAccount carlosAccount = new CheckingAccount(carlos, 789, 789123);
+            CheckingAccount adrianaAccount = new CheckingAccount(adriana, 123);
+            CheckingAccount brunoAccount = new CheckingAccount(bruno, 465);
+            CheckingAccount carlosAccount = new CheckingAccount(carlos, 789);
 
             this._accountsList = new List<CheckingAccount>() { carlosAccount, adrianaAccount, brunoAccount };
         }
@@ -89,9 +89,6 @@ namespace bytebank.Attendance
             Console.WriteLine(createAccountTitle);
             Console.WriteLine("Please, inform the account data:\n");
 
-            Console.Write("Account number: ");
-            int accountNumber = int.Parse(Console.ReadLine());
-
             Console.Write("Agency number: ");
             int agencyNumber = int.Parse(Console.ReadLine());
 
@@ -106,10 +103,9 @@ namespace bytebank.Attendance
 
             Client client = new Client(holderName, holderCPF, holderJob);
 
-            CheckingAccount account = new CheckingAccount(client, agencyNumber, accountNumber);
+            CheckingAccount account = new CheckingAccount(client, agencyNumber);
 
             _accountsList.Add(account);
-            Console.WriteLine(_accountsList.Count);
             Console.WriteLine("\n* Account created successfully *");
             Console.ReadKey();
         }
@@ -150,8 +146,8 @@ namespace bytebank.Attendance
 
             Console.WriteLine(removeAccountsTitle);
             Console.Write("Inform the account number: ");
-            int accountNumber = int.Parse(Console.ReadLine());
-            var account = _accountsList.Find((item) => item.AccountNumber == accountNumber);
+            string accountNumber = Console.ReadLine();
+            var account = _accountsList.Find((item) => item.AccountNumber.Equals(accountNumber));
             if (account != null)
             {
                 _accountsList.Remove(account);
@@ -192,8 +188,8 @@ namespace bytebank.Attendance
             {
                 case '1':
                     Console.Write("\nInform the account number you want to search for: ");
-                    int accountNumber = int.Parse(Console.ReadLine());
-                    account = _accountsList.Find(item => item.AccountNumber == accountNumber);
+                    string accountNumber = Console.ReadLine();
+                    account = _accountsList.Find(item => item.AccountNumber.Equals(accountNumber));
                     break;
                 case '2':
                     Console.Write("\nInform the holder's account CPF number you want to search for: ");
