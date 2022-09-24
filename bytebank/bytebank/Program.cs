@@ -21,7 +21,14 @@ CheckingAccount carlosAccount = new CheckingAccount(carlos, 789, 789123);
 
 List<CheckingAccount> _accountsList = new List<CheckingAccount>() { adrianaAccount, brunoAccount, carlosAccount };
 
-ShowMenu();
+try
+{
+    ShowMenu();
+}
+catch (MenuInvalidOptionException exception)
+{
+    Console.WriteLine(exception.Message);
+}
 
 void ShowMenu()
 {
@@ -39,23 +46,23 @@ void ShowMenu()
                   $"*-------------------------------*\n\n";
 
     Console.WriteLine(menu);
-    string option = Console.ReadLine();
+    char option = Console.ReadLine()[0];
     selectOption(option);
 }
 
-void selectOption(string option)
+void selectOption(char option)
 {
     Console.Clear();
 
     switch (option)
     {
-        case "1":
+        case '1':
             CreateAccount();
             goto default;
-        case "2":
+        case '2':
             ShowAllAccounts();
             goto default;
-        case "6":
+        case '6':
             ExitProgram();
             break;
         default: 
