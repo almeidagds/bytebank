@@ -62,6 +62,9 @@ void selectOption(char option)
         case '2':
             ShowAllAccounts();
             goto default;
+        case '3':
+            RemoveAccounts();
+            goto default;
         case '6':
             ExitProgram();
             break;
@@ -139,4 +142,27 @@ void ExitProgram()
 {
     Console.Clear();
     Console.WriteLine("You left the system...");
+}
+
+void RemoveAccounts()
+{
+    string removeAccountsTitle = $"*-----------------------*\n" +
+                                 $"|  Removing an account  |\n" +
+                                 $"*-----------------------*\n\n";
+
+    Console.WriteLine(removeAccountsTitle);
+    Console.Write("Inform the account number: ");
+    int accountNumber = int.Parse(Console.ReadLine());
+    var account = _accountsList.Find((item) => item.AccountNumber == accountNumber);
+    Console.WriteLine(account);
+    if (account != null)
+    {
+        _accountsList.Remove(account);
+        Console.Write("The account was removed from the list.");
+    }
+    else
+    {
+        Console.WriteLine("The specified account was not found.");
+    }
+    Console.ReadKey();
 }
