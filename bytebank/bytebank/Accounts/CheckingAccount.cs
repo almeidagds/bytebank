@@ -8,7 +8,7 @@ using bytebank.CustomExceptions;
 
 namespace bytebank.Accounts
 {
-    public class CheckingAccount
+    public class CheckingAccount : IComparable<CheckingAccount>
     {
         public Client Holder { get; set; }
         public int Agency { get; }
@@ -73,6 +73,18 @@ namespace bytebank.Accounts
             }
 
             return wireTransferWasSuccesfful;
+        }
+
+        public int CompareTo(CheckingAccount? other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            else
+            {
+                return this.AccountNumber.CompareTo(other.AccountNumber);
+            }
         }
     }
 }

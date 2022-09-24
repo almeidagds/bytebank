@@ -19,7 +19,7 @@ CheckingAccount adrianaAccount = new CheckingAccount(adriana, 123, 123456);
 CheckingAccount brunoAccount = new CheckingAccount(bruno, 465, 456789);
 CheckingAccount carlosAccount = new CheckingAccount(carlos, 789, 789123);
 
-List<CheckingAccount> _accountsList = new List<CheckingAccount>() { adrianaAccount, brunoAccount, carlosAccount };
+List<CheckingAccount> _accountsList = new List<CheckingAccount>() { carlosAccount, adrianaAccount, brunoAccount };
 
 try
 {
@@ -64,6 +64,9 @@ void selectOption(char option)
             goto default;
         case '3':
             RemoveAccounts();
+            goto default;
+        case '4':
+            SortAccounts();
             goto default;
         case '6':
             ExitProgram();
@@ -154,7 +157,6 @@ void RemoveAccounts()
     Console.Write("Inform the account number: ");
     int accountNumber = int.Parse(Console.ReadLine());
     var account = _accountsList.Find((item) => item.AccountNumber == accountNumber);
-    Console.WriteLine(account);
     if (account != null)
     {
         _accountsList.Remove(account);
@@ -164,5 +166,17 @@ void RemoveAccounts()
     {
         Console.WriteLine("The specified account was not found.");
     }
+    Console.ReadKey();
+}
+
+void SortAccounts()
+{
+    string sortAccountsTitle = $"*--------------------*\n" +
+                               $"|  Sorting accounts  |\n" +
+                               $"*--------------------*\n\n";
+
+    Console.WriteLine(sortAccountsTitle);
+    _accountsList.Sort();
+    Console.WriteLine("Accounts sorted.");
     Console.ReadKey();
 }
