@@ -7,6 +7,7 @@ using bytebank.Accounts;
 using bytebank.CustomExceptions;
 using System.Runtime.Serialization.Formatters;
 using System.Collections;
+using System.Security.AccessControl;
 
 
 //Clients
@@ -68,6 +69,9 @@ void selectOption(char option)
         case '4':
             SortAccounts();
             goto default;
+        case '5':
+            FindAccount();
+            goto default;
         case '6':
             ExitProgram();
             break;
@@ -128,13 +132,7 @@ void ShowAllAccounts()
     {
         foreach(CheckingAccount account in _accountsList)
         {
-            string accountInformation = $"Holder: {account.Holder.Name}\n" +
-                                        $"Holder's CPF: {account.Holder.Cpf}\n" +
-                                        $"Holder's job: {account.Holder.Job}\n" +
-                                        $"Account number: {account.AccountNumber}\n" +
-                                        $"Agency number: {account.Agency}\n";
-            
-            Console.WriteLine(accountInformation);
+            Console.WriteLine(account);
         }
     }
 
@@ -178,5 +176,42 @@ void SortAccounts()
     Console.WriteLine(sortAccountsTitle);
     _accountsList.Sort();
     Console.WriteLine("Accounts sorted.");
+    Console.ReadKey();
+}
+
+void FindAccount()
+{
+    string searchAccountTitle = $"*-------------------------*\n" +
+                                $"|  Search for an account  |\n" +
+                                $"*-------------------------*\n\n";
+
+    Console.WriteLine(searchAccountTitle);
+    Console.WriteLine("Do you want to search based on what information?\n" +
+        "1 - Account number;\n" +
+        "2 - Holder's CPF.\n");
+    char option = Console.ReadLine()[0];
+    CheckingAccount account = null;
+    switch (option)
+    {
+        case '1':
+            Console.Write("\nInform the account number you want to search for: ");
+            int accountNumber = int.Parse(Console.ReadLine());
+            account = _accountsList.Find(item => item.AccountNumber == accountNumber);
+            break;
+        case '2':
+            Console.Write("\nInform the holder's account CPF number you want to search for: ");
+            string cpf = Console.ReadLine();
+            account = _accountsList.Find(item => item.Holder.Cpf == cpf);
+            break;
+    }
+    if (account == null)
+    {
+        Console.WriteLine("The search return 0 results. The specified account was not found.");
+    }
+    else
+    {
+        Console.WriteLine(account);
+    }
+
     Console.ReadKey();
 }

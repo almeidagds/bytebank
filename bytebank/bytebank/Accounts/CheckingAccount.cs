@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using bytebank.Clients;
@@ -85,6 +86,17 @@ namespace bytebank.Accounts
             {
                 return this.AccountNumber.CompareTo(other.AccountNumber);
             }
+        }
+
+        public override string ToString()
+        {
+            string accountInformation = $"Holder: {this.Holder.Name}\n" +
+                                        $"Holder's CPF: {this.Holder.Cpf}\n" +
+                                        $"Holder's job: {this.Holder.Job}\n" +
+                                        $"Account number: {this.AccountNumber}\n" +
+                                        $"Agency number: {this.Agency}\n"; ;
+
+            return accountInformation;
         }
     }
 }
