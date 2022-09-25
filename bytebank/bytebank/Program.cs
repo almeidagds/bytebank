@@ -9,5 +9,3 @@ using System.Runtime.Serialization.Formatters;
 using System.Collections;
 using System.Security.AccessControl;
 using bytebank.Attendance;
-
-new Attendance().ShowMenu();
