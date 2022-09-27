@@ -11,6 +11,8 @@ namespace bytebank.Employees
     {
         string Password { get; set; }
 
+        private AuthenticationHelper _authenticationHelper = new AuthenticationHelper();
+
         protected AuthenticableEmployee(string name, string cpf, double salary, double bonusPercentage, double salaryIncreasePercentage, string password) : base(name, cpf, salary, bonusPercentage, salaryIncreasePercentage)
         {
             Password = password;
@@ -18,7 +20,7 @@ namespace bytebank.Employees
 
         public bool Authenticate(string password)
         {
-            return this.Password == password;
+            return _authenticationHelper.ComparePasswords(Password, password);
         }
     }
 }

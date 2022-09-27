@@ -13,10 +13,12 @@ namespace bytebank.CommercialPartnership
         {
             Password = password;
         }
+        private AuthenticationHelper _authenticationHelper = new AuthenticationHelper();
+        
         public string Password { get; set; }
         public bool Authenticate(string password)
         {
-            return this.Password == password;
+            return _authenticationHelper.ComparePasswords(Password, password);
         }
     }
 }
