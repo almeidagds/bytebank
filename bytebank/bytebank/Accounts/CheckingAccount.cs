@@ -8,7 +8,10 @@ using bytebank.Clients;
 using bytebank.CustomExceptions;
 
 namespace bytebank.Accounts
-{
+{   
+    /// <summary>
+    /// This class define a ByteBank Checking Account.
+    /// </summary>
     public class CheckingAccount : IComparable<CheckingAccount>
     {
         public Client Holder { get; set; }
@@ -25,6 +28,12 @@ namespace bytebank.Accounts
         public static double OperationFee { get; private set; }
         public static int NumberOfAccounts { get; private set; }
 
+        /// <summary>
+        /// Create a instance of Checking Account.
+        /// </summary>
+        /// <param name="holder">Checking account's holder.</param>
+        /// <param name="agency">Checking account's agency</param>
+        /// <exception cref="ArgumentException"></exception>
         public CheckingAccount(Client holder, int agency)
         {
             Holder = holder;
