@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>bytebank</name>
+    </assembly>
+    <members>
+        <member name="T:bytebank.Accounts.CheckingAccount">
+            <summary>
+            This class define a ByteBank Checking Account.
+            </summary>
+        </member>
+        <member name="M:bytebank.Accounts.CheckingAccount.#ctor(bytebank.Clients.Client,System.Int32)">
+            <summary>
+            Create a instance of Checking Account.
+            </summary>
+            <param name="holder">Checking account's holder.</param>
+            <param name="agency">Checking account's agency</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+    </members>
+</doc>

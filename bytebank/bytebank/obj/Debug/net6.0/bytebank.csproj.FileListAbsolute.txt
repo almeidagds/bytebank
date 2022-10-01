@@ -13,3 +13,4 @@ C:\Users\Almeida\Documents\GitHub\bytebank\bytebank\bytebank\obj\Debug\net6.0\re
 C:\Users\Almeida\Documents\GitHub\bytebank\bytebank\bytebank\obj\Debug\net6.0\bytebank.pdb
 C:\Users\Almeida\Documents\GitHub\bytebank\bytebank\bytebank\obj\Debug\net6.0\bytebank.genruntimeconfig.cache
 C:\Users\Almeida\Documents\GitHub\bytebank\bytebank\bytebank\obj\Debug\net6.0\ref\bytebank.dll
+C:\Users\Almeida\Documents\GitHub\bytebank\bytebank\bytebank\bin\Debug\net6.0\ByteBank.Modelos.xml
